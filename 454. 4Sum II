@@ -1,0 +1,20 @@
+class Solution:
+    def fourSumCount(self, nums1, nums2, nums3, nums4):
+        count_map = {}
+        for i in nums1:
+            for j in nums2:
+                count_map[i + j] = count_map.get(i + j, 0) + 1
+        count = 0
+        for k in nums3:
+            for l in nums4:
+                count += count_map.get(-(k + l), 0)
+        return count
+
+# Make sure this part is below the class definition
+param_1 = [1, 2]
+param_2 = [-2, -1]
+param_3 = [-1, 2]
+param_4 = [0, 2]
+
+ret = Solution().fourSumCount(param_1, param_2, param_3, param_4)
+print(ret)  # Output: 2
